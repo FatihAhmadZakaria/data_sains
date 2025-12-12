@@ -1,0 +1,42 @@
+=== MULAI ANALISIS SELEKSI FITUR ===
+Target Variabel: stock
+
+--- 1. KBest Regression (Linear Score) ---
+        Feature      Score
+    jumlahcetak 105.104540
+  kategoriutama  89.974018
+    lembartotal  55.592412
+      statussku  18.060232
+kategoritersier  16.091973
+      hargabuku   9.827207
+bulan_transaksi   9.513616
+      dayofyear   9.085711
+tahun_transaksi   9.054035
+marketplacename   6.244456
+
+--- 2. Mutual Info (Non-Linear Score) ---
+         Feature    Score
+       hargabuku 0.412746
+     lembartotal 0.320146
+kategorisekunder 0.206125
+     jumlahcetak 0.166417
+ kategoritersier 0.104149
+      servicefee 0.101687
+     tahunterbit 0.092236
+   kategoriutama 0.085791
+ bulan_transaksi 0.016288
+          urgent 0.012205
+
+--- 3. Model-Based (Random Forest Importance) ---
+         Feature    Score
+     lembartotal 0.800526
+     jumlahcetak 0.151310
+       hargabuku 0.022372
+   kategoriutama 0.008786
+      servicefee 0.004690
+     tahunterbit 0.003746
+kategorisekunder 0.002405
+       dayofyear 0.001805
+ marketplacename 0.001510
+   tipetransaksi 0.001058
+=== SELESAI ===
