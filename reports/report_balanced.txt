@@ -1,0 +1,23 @@
+==================== HASIL EVALUASI: MODEL BALANCED ====================
+Akurasi Total: 99.72%
+
+[Laporan Klasifikasi]
+              precision    recall  f1-score   support
+
+      Rendah       1.00      1.00      1.00      1709
+      Sedang       1.00      0.91      0.95        34
+      Tinggi       1.00      0.92      0.96        25
+
+    accuracy                           1.00      1768
+   macro avg       1.00      0.94      0.97      1768
+weighted avg       1.00      1.00      1.00      1768
+
+
+[Detail Sensitivitas & Spesifisitas per Kelas]
+Kelas      | Sensitivitas    | Spesifisitas   
+---------------------------------------------
+Rendah     | 100.00%          | 91.53%
+Sedang     | 91.18%          | 100.00%
+Tinggi     | 92.00%          | 100.00%
+
+[INFO] Gambar matriks disimpan: reports/matrix_scenario_balanced.png

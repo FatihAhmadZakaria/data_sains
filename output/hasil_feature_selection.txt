@@ -16,16 +16,16 @@ marketplacename   6.244456
 
 --- 2. Mutual Info (Non-Linear Score) ---
          Feature    Score
-       hargabuku 0.412746
-     lembartotal 0.320146
-kategorisekunder 0.206125
-     jumlahcetak 0.166417
- kategoritersier 0.104149
-      servicefee 0.101687
-     tahunterbit 0.092236
-   kategoriutama 0.085791
- bulan_transaksi 0.016288
-          urgent 0.012205
+       hargabuku 0.396611
+     lembartotal 0.312997
+kategorisekunder 0.212523
+     jumlahcetak 0.162891
+      servicefee 0.101860
+   kategoriutama 0.101351
+     tahunterbit 0.097064
+ kategoritersier 0.080939
+  hari_transaksi 0.018336
+ bulan_transaksi 0.017260
 
 --- 3. Model-Based (Random Forest Importance) ---
          Feature    Score

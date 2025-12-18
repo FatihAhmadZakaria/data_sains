@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 import sys
 
 # Konfigurasi Output
-OUTPUT_FILE = "hasil_feature_selection.txt"
+OUTPUT_FILE = "./output/hasil_feature_selection.txt"
 
 def log_print(text, file_obj):
     """Mencetak ke layar DAN ke file txt secara bersamaan"""
@@ -16,7 +16,7 @@ def log_print(text, file_obj):
 
 def load_data(path):
     df = pd.read_csv(path)
-    # Drop kolom sampah/bocor
+    # Drop kolom
     cols_to_drop = ['sku', 'judul', 'penerima', 'kategorigabungan', 'tanggal']
     existing_drop = [c for c in cols_to_drop if c in df.columns]
     df = df.drop(columns=existing_drop)
@@ -47,7 +47,7 @@ def get_kbest_scores(df, target):
     X = df.drop(columns=[target])
     y = df[target]
     
-    selector = SelectKBest(score_func=f_regression, k='all') # Hitung semua dulu
+    selector = SelectKBest(score_func=f_regression, k='all')
     selector.fit(X, y)
     
     scores = pd.DataFrame({
@@ -86,11 +86,11 @@ def get_model_based_scores(df, target):
     return scores
 
 if __name__ == "__main__":
-    # Buka file txt untuk menyimpan hasil
+    # Untuk menyimpan hasil txt
     with open(OUTPUT_FILE, "w") as f:
         log_print("=== MULAI ANALISIS SELEKSI FITUR ===", f)
         
-        path_file = "data/processed.csv"
+        path_file = "./data/processed.csv"
         df = load_data(path_file)
         df = df.fillna(0)
         df_encoded = encode_categoricals(df)
@@ -106,21 +106,21 @@ if __name__ == "__main__":
             log_print("--- 1. KBest Regression (Linear Score) ---", f)
             scores_kbest = get_kbest_scores(df_encoded, target)
             log_print(scores_kbest.head(10).to_string(index=False), f)
-            save_plot(scores_kbest, "Feature Importance (KBest F-Regression)", "chart_kbest.png")
+            save_plot(scores_kbest, "Feature Importance (KBest F-Regression)", "./output/chart_kbest.png")
             log_print("", f) # Spasi
 
             # 2. Mutual Info (Non-Linear)
             log_print("--- 2. Mutual Info (Non-Linear Score) ---", f)
             scores_mi = get_mutual_info_scores(df_encoded, target)
             log_print(scores_mi.head(10).to_string(index=False), f)
-            save_plot(scores_mi, "Feature Importance (Mutual Info)", "chart_mutual_info.png")
+            save_plot(scores_mi, "Feature Importance (Mutual Info)", "./output/chart_mutual_info.png")
             log_print("", f)
 
             # 3. Model Based (Random Forest)
             log_print("--- 3. Model-Based (Random Forest Importance) ---", f)
             scores_rf = get_model_based_scores(df_encoded, target)
             log_print(scores_rf.head(10).to_string(index=False), f)
-            save_plot(scores_rf, "Feature Importance (Random Forest)", "chart_random_forest.png")
+            save_plot(scores_rf, "Feature Importance (Random Forest)", "./output/chart_random_forest.png")
             
         log_print("=== SELESAI ===", f)
         print(f"\nHasil teks tersimpan di: {OUTPUT_FILE}")
