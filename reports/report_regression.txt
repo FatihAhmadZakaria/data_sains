@@ -1,0 +1,26 @@
+
+==================== HASIL REGRESI: Skenario A (Semua Fitur) ====================
+R² Score (Akurasi Kecocokan): 0.9671 (Maks 1.0)
+MAE (Rata-rata Meleset)     : 0.67 buku
+RMSE (Error Sensitif Outlier): 10.60
+
+[Contoh 5 Prediksi Pertama]
+ Aktual  Prediksi
+      0       0.0
+      0       0.0
+      6       6.0
+      1       0.8
+      0       0.0
+
+==================== HASIL REGRESI: Skenario B (Fitur Terpilih) ====================
+R² Score (Akurasi Kecocokan): 0.9681 (Maks 1.0)
+MAE (Rata-rata Meleset)     : 0.64 buku
+RMSE (Error Sensitif Outlier): 10.44
+
+[Contoh 5 Prediksi Pertama]
+ Aktual  Prediksi
+      0       0.0
+      0       0.7
+      6       6.0
+      1       0.7
+      0       0.0
