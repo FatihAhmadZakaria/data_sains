@@ -32,7 +32,15 @@ def load_assets(model_path):
 
 def main():
     st.set_page_config(page_title="Prediksi Stok Buku", layout="centered")
-
+    with st.sidebar:
+        st.title("Menu Cepat")
+        if st.button("Lihat Data Model Balance"):
+            st.query_params["mode"] = "balance"
+            st.rerun() # Muat ulang aplikasi dengan param baru
+        
+        if st.button("Lihat Data Model Normal"):
+            st.query_params["mode"] = "normal"
+            st.rerun()
     # --- 1. DETEKSI ROUTE / MODE ---
     query_params = st.query_params
     current_mode = query_params.get("mode", "normal")
